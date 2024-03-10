@@ -1,0 +1,118 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~@angular/material/theming'; */
+.toolbarHead{
+    font-size: 38px;
+    font-family: 'Rowdies', sans-serif;
+}
+.searchBox{
+    margin-left: 16%;
+    width: 37%;
+    margin-top: 7px;
+    background-color: beige;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 13% 87%;
+}
+.searchIcon{
+    margin-top: 7px;
+}
+.searchBoxInput{
+    border: none;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #ed2474;
+    /* background-color: yellow; */
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.profileBtn{
+    margin-left: 69%;
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.profileBtnMenu{
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.homeBtn{
+    margin-left: 17px;
+}
+.orderContainer{
+    margin-top: 145px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.customerHeading{
+    font-size: 19px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+    /* background-color: yellow; */
+}
+.closeOrdersBtn{
+    margin-top: 50px;
+    margin-left: 46%;
+    margin-bottom: 156px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+}
+.customerPara{
+    font-size: 12px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 600;
+}
+.customerContainer{
+    margin-left: 19px;
+    margin-top: 15px;
+}
+.customerImg{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+.orderCard{
+    min-width: 400px;
+    max-width: 400px;
+    margin-top: 20px;
+}
+.orderCardHeader{
+    background-color: #ed2474;
+    padding-bottom: 10px;
+}
+.itemDetails{
+    font-size: 14px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+}
+.customerContent{
+    padding-top: 17px;
+    /* background-color: antiquewhite; */
+}
+.itemDetailsHeader{
+    font-size: 18px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+}
+.deliverySpan{
+    margin-left: 4px;
+    font-size: 13px;
+    margin-bottom: 4px;
+}

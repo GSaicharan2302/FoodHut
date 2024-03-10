@@ -1,0 +1,130 @@
+<div class="register-restaurant">
+    
+    <mat-card>
+        <mat-card-title>
+            Register Restaurant
+        </mat-card-title>
+        <mat-card-content>
+            <mat-stepper [linear]="true" orientation="horizontal" #stepper>
+                <mat-step [stepControl]="restaurantInfo">
+                    <form [formGroup]="restaurantInfo">
+                        <ng-template matStepLabel>Fill out Restaurant Details</ng-template>
+                        <div class="form-content">
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    restaurant name
+                                </mat-label>
+                                <input type="text" matInput formControlName="restaurantName" >
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    contact no
+                                </mat-label>
+                                <input type="text" matInput formControlName="contactNumber" >
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    email
+                                </mat-label>
+                                <input type="email" matInput formControlName="emailId" >
+                            </mat-form-field>
+
+                            <div class="field-container">
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>
+                                        password
+                                    </mat-label>
+                                    <input type="text" matInput formControlName="password" >
+                                </mat-form-field>
+    
+                                <mat-form-field appearance="outline">
+                                    <mat-label>
+                                        confirm  password
+                                    </mat-label>
+                                    <input type="password" matInput formControlName="confirmPassword" >
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="location">
+                    <form [formGroup]="location">
+                        <ng-template matStepLabel>set the location of your restaurant</ng-template>
+                        <div class="form-content">
+                            <div class="field-container">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>State</mat-label>
+                                    <mat-select matInput formControlName="state" (selectionChange)="stateChange($event)">
+                                      <mat-option disabled>Select a state</mat-option>                            
+                                      <mat-option *ngFor="let state of _states" [value]="state">{{ state }}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                              
+                                  <mat-form-field appearance="outline">
+                                    <mat-label>City</mat-label>
+                                    <mat-select matInput formControlName="city">
+                                      <mat-option disabled>Select a city</mat-option>
+                                      <mat-option *ngFor="let city of _cities" [value]="city">{{ city }}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+
+                            </div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    door no
+                                </mat-label>
+                                <input type="text" matInput formControlName="doorNo" >
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    street
+                                </mat-label>
+                                <input type="text" matInput formControlName="street" >
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    area
+                                </mat-label>
+                                <input type="text" matInput formControlName="area" >
+                            </mat-form-field>
+                        </div>
+
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="extraInfo">
+                    <form [formGroup]="extraInfo">
+                        <ng-template matStepLabel>set description of your restaurant</ng-template>
+                        <div class="form-content">
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    cuisine type
+                                </mat-label>
+                                <input type="text" matInput formControlName="cuisineType" >
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    description
+                                </mat-label>
+                                <textarea type="text" matInput formControlName="description" 
+                                placeholder="give a description for your restaurant">
+                                </textarea>
+                            </mat-form-field>
+                        </div>
+
+                    </form>
+                </mat-step>
+            </mat-stepper>
+            <mat-card-actions matTooltip="register" >
+                <button mat-fab extended (click)="register()" color="primary">
+                    register
+                </button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</div>

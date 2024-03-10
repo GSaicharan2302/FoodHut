@@ -1,0 +1,43 @@
+.addressForm{
+    padding: 12px;
+    padding-top: 27px;
+}
+.firstRow{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 14px;
+}
+.btnContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 14px;
+}
+.doorNoField{
+    width: 45%;
+    margin-top: 14px;
+}
+.streetField{
+    width: 45%;
+    margin-top: 14px;
+}
+.areaField{
+    width: 100%;
+    margin-top: 14px;
+}
+.cityField{
+    width: 100%;
+    margin-top: 14px;
+}
+.stateField{
+    width: 100%;
+    margin-top: 14px;
+}
+.zipcodeField{
+    width: 100%;
+    margin-top: 14px;
+}
+.toolbarHead{
+    font-size: 38px;
+    font-family: 'Rowdies', sans-serif;
+    margin-left: 24%;
+}

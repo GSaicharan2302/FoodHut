@@ -1,0 +1,89 @@
+.signup{
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    padding-top: 5em;   
+    background-image: url('src\assets\Chocolate Bonbons.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    height: 100%;
+
+}
+mat-card{
+    padding: 1em;
+    /* background-color: antiquewhite; */
+    box-shadow: 1px 1px  1px 1px black;
+    background: rgba(255, 255, 255, .02);
+    backdrop-filter: blur(0);
+    height: 45em;
+    transition: backdrop-filter 0.2s ease-in, transform 0.3s ease-out;
+    /* overflow: hidden; */
+    /* -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0); */
+
+}
+mat-card:hover {
+    backdrop-filter: blur(25px);
+}
+mat-card-title h2{
+    text-align: center;
+}
+mat-form-field{
+    width: 100%;
+}
+mat-card-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    padding: 1em 25%;
+    width: 100%;
+}
+mat-card-actions p{
+    text-shadow: 1.5px 1px 1px black;
+}
+mat-card-actions p a{
+    text-decoration: none;
+    color: orange;
+}
+mat-card-actions p a:hover{
+    color: black;
+}
+mat-card-content{
+    /* background-color: green; */
+
+    background: rgba(255, 255, 255, 0);
+    /* backdrop-filter: blur(25px); */
+}
+form{
+    /* background-color: red; */
+    background: rgba(255, 255, 255, 0);
+    /* backdrop-filter: blur(25px); */
+
+}
+mat-stepper{
+    /* background-color: blue; */
+
+    background: rgba(255, 255, 255, 0.2);
+    
+    /* backdrop-filter: blur(25px); */
+
+}
+
+.field-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1em;
+
+}
+/* mat-form-field{} */
+.form-content{
+    padding: 1em;
+}
+button{
+    width: 100%;
+    
+}

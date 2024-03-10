@@ -1,0 +1,115 @@
+<div class="jumbotron jumbotron-fluid  ">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="jumboHeader"></div>
+      </div>
+      <div class="carousel-item">
+        <div class="jumboHeader1"></div>
+      </div>
+      <div class="carousel-item">
+        <div class="jumboHeader2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="topNavSection" *ngIf="this.getRole()==='guest'">
+    <button mat-button class="loginBtn"  (click)="login($event)">Login</button>
+    <button mat-button class="signupBtn"  (click)="signup($event)">Sign Up</button>
+    <button mat-button class="addRestaurantBtn"  (click)="addRestaurant($event)">Add Restaurant</button>
+  </div>
+  <div class="topNavSection" *ngIf="this.getRole()==='customer'">
+    <button mat-button class="profileBtnHome" [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+      {{this.currentCustomer.username?this.currentCustomer.username:"Guest"}}
+  </button>
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item class="profileBtnMenu">View Profile</button>
+      <button mat-menu-item class="profileBtnMenu" (click)="logout()">Logout</button>
+  </mat-menu>
+  <button mat-button class="addRestaurantBtn"  (click)="getOrders()">My Orders</button>
+  <button mat-icon-button class="cartBtn" (click)="getCart()"><mat-icon [matBadge]="this.cartService.getCartSize()" [matBadgeHidden]="this.cartService.getCartSize()===0?true:false" >shopping_cart</mat-icon></button>
+  </div>
+  <div class="topNavSection" *ngIf="this.getRole()==='restaurant'">
+    <button mat-button class="profileBtnHome" [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+      {{this.currentRestaurant.ownername}}
+  </button>
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item class="profileBtnMenu">Profile<mat-icon>account_circle</mat-icon></button>
+      <button mat-menu-item class="profileBtnMenu" (click)="logout()">Logout<mat-icon>logout</mat-icon></button>
+  </mat-menu>
+  <button mat-flat-button class="addRestaurantBtn" color="warn" (click)="addItems($event)">Add Items</button>
+  <button mat-button class="viewOrdersBtn" color="warn" (click)="goToRestaurantOrderView($event)">View Orders</button>
+  </div>
+  <div class="headerSection">FoodHut</div>
+    <div class="paraSection">Find the best restaurants,cafes in India</div>
+  <!-- <div class="container-fluid jumboHeader">
+    <div class="topNavSection" *ngIf="isGuest()">
+      <button mat-flat-button class="loginBtn" color="primary" (click)="login($event)">Login</button>
+      <button mat-flat-button class="signupBtn" color="accent" (click)="signup($event)">Sign Up</button>
+      <button mat-flat-button class="addRestaurantBtn" color="warn">Add Restaurant</button>
+    </div>
+    <div class="topNavSection" *ngIf="!isGuest()">
+      <button mat-button class="profileBtnHome" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{this.currentCustomer.username?this.currentCustomer.username:"Guest"}}
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item class="profileBtnMenu">View Profile</button>
+        <button mat-menu-item class="profileBtnMenu" (click)="logout()">Logout</button>
+    </mat-menu>
+    <button mat-flat-button class="addRestaurantBtn" color="warn">Add Restaurant</button>
+    </div>
+    <div class="headerSection">FoodHut</div>
+    <div class="paraSection">Find the best restaurants,cafes in India</div>
+  </div> -->
+</div>
+<div class="jumbotron jumbotron-fluid locationDescriptionContainer">
+  <div class="container-fluid">
+      <div class="describeHeaderSection">Popular locations in India</div>
+      <div class="describeParaSection">From swanky upscale restaurants to the cosiest hidden gems serving the most incredible food, FoodHut covers it all. Explore menus, and millions of restaurant photos and reviews from users just like you, to find your next great meal.</div>
+  </div>
+</div>
+<div class="restaurantsFinder" *ngIf="this.getRole()!=='restaurant'">
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('agra')">Agra Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn"  (click)="gotoRestaurant('ahmedabad')">Ahmedabad Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('bangalore')">Bangalore Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('chennai')">Chennai Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('delhi')">Delhi Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('faridabad')">Faridabad Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('guwahati')">Guwahati Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('hyderabad')">Hyderabad Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('kolkata')">Kolkata Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('mumbai')">Mumbai Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('dharamsala')">Dharamsala Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+  <button mat-button class="restaurantBtn" (click)="gotoRestaurant('patna')">Patna Restaurants<mat-icon matIconSuffix>chevron_right</mat-icon></button>
+</div>
+<h4 class="infoHeading" *ngIf="this.getRole()==='restaurant'">How it works</h4>
+<div class="infoContainer" *ngIf="this.getRole()==='restaurant'">
+  <mat-card class="infoCard">
+    <mat-card-header class="infoHeader"><img src="https://b.zmtcdn.com/merchant-onboarding/ecb5e086ee64a4b8b063011537be18171600699886.png" class="infoImg" mat-card-lg-image></mat-card-header>
+    <mat-card-content class="infoContent">
+      <h5 class="infoContentStep">STEP 1</h5>
+      <h4 class="infoContentHead">Create your page on Foodhut</h4>
+      <p class="infoContentPara">Help users discover your place by creating a listing on FoodHut</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="infoCard">
+    <mat-card-header class="infoHeader"><img src="https://b.zmtcdn.com/merchant-onboarding/71d998231fdaeb0bffe8ff5872edcde81600699935.png" class="infoImg" mat-card-lg-image></mat-card-header>
+    <mat-card-content class="infoContent">
+      <h5 class="infoContentStep">STEP 2</h5>
+      <h4 class="infoContentHead">Register for online ordering</h4>
+      <p class="infoContentPara">And deliver orders to millions of customers with ease</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="infoCard">
+    <mat-card-header class="infoHeader"><img src="https://b.zmtcdn.com/merchant-onboarding/efdd6ac0cd160a46c97ad58d9bbd73fd1600699950.png" class="infoImg" mat-card-lg-image></mat-card-header>
+    <mat-card-content class="infoContent">
+      <h5 class="infoContentStep">STEP 3</h5>
+      <h4 class="infoContentHead">Start receiving orders online</h4>
+      <p class="infoContentPara">Manage orders on our partner app, web dashboard or API partners</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer class="footer"></app-footer>
+

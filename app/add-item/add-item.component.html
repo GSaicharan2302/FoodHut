@@ -1,0 +1,86 @@
+<mat-toolbar class="header">
+    <div class="toolbarHead">FoodHut</div>
+    <button mat-button class="profileBtn" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{this.restaurant.ownername?this.restaurant.ownername:""}}
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item class="profileBtnMenu" (click)="viewProfile()">Profile<mat-icon>account_circle</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="logout()">Logout<mat-icon>logout</mat-icon></button>
+        <!-- <button mat-menu-item class="profileBtnMenu" (click)="login()"  *ngIf="isGuest()">Login<mat-icon>login</mat-icon></button> -->
+    </mat-menu>
+    <button mat-icon-button class="homeBtn" (click)="goToHome()"><mat-icon>home</mat-icon></button>
+</mat-toolbar>
+<div class="addItemContainer">
+    <form [formGroup]="itemForm" (ngSubmit)="formSubmit()">
+        <mat-form-field class="itemFormField" appearance="outline">
+            <mat-label>Enter Product ID : </mat-label>
+            <input matInput formControlName="productId" >
+            <mat-error *ngIf="this.productId?.errors?.['required']">
+                Product ID is required
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field class="itemFormField" appearance="outline">
+            <mat-label>Enter Product Name : </mat-label>
+            <input matInput formControlName="productname" >
+            <mat-error *ngIf="this.productname?.errors?.['required']">
+                Product Name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="itemFormField" appearance="outline">
+            <mat-label>Enter Product Description : </mat-label>
+            <input matInput formControlName="description" >
+            <mat-error *ngIf="this.description?.errors?.['required']">
+                Description is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="itemFormField" appearance="outline">
+            <mat-label>Enter Cuisine Type : </mat-label>
+            <input matInput formControlName="cuisineType" >
+            <mat-error *ngIf="this.cuisineType?.errors?.['required']">
+                    Cuisine Type is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="itemFormField" appearance="outline">
+            <mat-label>Enter Price : </mat-label>
+            <input matInput formControlName="price" >
+            <mat-error *ngIf="this.price?.errors?.['required']">
+                    Price is required
+            </mat-error>
+            <mat-error *ngIf="this.price?.errors?.['pattern']">
+                Enter Proper Price
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="itemFormField" appearance="outline">
+            <mat-label>Enter Rating : </mat-label>
+            <input matInput formControlName="rating" >
+            <mat-error *ngIf="this.rating?.errors?.['required']">
+                    Rating is required
+            </mat-error>
+            <mat-error *ngIf="this.rating?.errors?.['pattern']">
+                Enter Proper Rating
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="itemFormField" appearance="outline">
+            <mat-label>Enter Duration : </mat-label>
+            <input matInput formControlName="duration" >
+            <mat-error *ngIf="this.duration?.errors?.['required']">
+                    Duration is required
+            </mat-error>
+            
+        </mat-form-field>
+        
+        <div class="btnContainer">
+            <button mat-flat-button color="primary" type="submit"  [disabled]="!this.itemForm.valid && this.submitDisabled">
+                Submit
+            </button>
+            <button mat-flat-button color="warn" type="reset">
+                Reset
+            </button>
+            <button mat-button class="addImgContainer" (click)="openFileDialog($event)" type="button"><mat-icon>add_a_photo</mat-icon> Add item image</button>
+            <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" accept=".jpg">
+        </div>
+    </form>
+    
+</div>
+<app-footer></app-footer>

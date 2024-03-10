@@ -1,0 +1,36 @@
+.register-restaurant{
+    padding: 1em 10em;
+    padding-top: 5em;
+}
+mat-card-title{
+    text-align: center;
+    padding: 1em;
+}
+.form-content{
+    /* width: 100%; */
+    /* background-color: red; */
+    
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid green;
+    border-radius: 1em;
+}
+.field-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+
+}
+mat-form-field{
+    width: 100%;
+}
+mat-card-actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+mat-card-actions button{
+    width: 50%;
+}

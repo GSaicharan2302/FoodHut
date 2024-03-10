@@ -1,0 +1,51 @@
+<mat-toolbar class="header">
+    <div class="toolbarHead">FoodHut</div>
+   
+    
+    <!-- <div class="searchBox form-group">
+        <span class="iconSpan"><mat-icon class="searchIcon">search</mat-icon></span>
+        <input type="text" placeholder="Search for different Orders based on Order ID" class="searchBoxInput form-control" [(ngModel)]="name" >
+    </div> -->
+    
+    
+    <!-- <button mat-button class="profileBtn" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{this.currentCustomer.username?this.currentCustomer.username:"Guest"}}
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item class="profileBtnMenu" (click)="viewProfile()">Profile<mat-icon>account_circle</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="logout()" *ngIf="!isGuest()">Logout<mat-icon>logout</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="login()"  *ngIf="isGuest()">Login<mat-icon>login</mat-icon></button>
+    </mat-menu> -->
+    <button mat-icon-button class="homeBtn" (click)="goToHome()"><mat-icon>home</mat-icon></button>
+    <button mat-icon-button class="logoutBtn" (click)="logout()"><mat-icon>logout</mat-icon></button>
+</mat-toolbar>
+<div class="orderContainer">
+<div class="orderList">
+    <h4 class="ordersHeader">Past Orders</h4>
+    <mat-card class="orderCard" *ngFor="let o of this.currentCustomer.orderList" >
+        <mat-card-header class="orderCardHeader">
+            <img [src]="this.getImageURL(o.orderID)" mat-card-lg-image class="imgCard">
+            <div class="restaurantContainer">
+                <h4 class="restaurantHeading">{{o.orderID?this.restaurantHolderMap.get(o.orderID)?.restaurantname:''}}</h4>
+                <p class="restaurantAddress">{{o.orderID?this.restaurantHolderMap.get(o.orderID)?.location?.area:''}}, {{o.orderID?this.restaurantHolderMap.get(o.orderID)?.location?.city:''}}</p>
+            </div>
+        </mat-card-header>
+        <mat-card-content class="orderCardContent">
+            <div *ngFor="let i of o.itemList" class="orderCardQuantityContainer"><span class="quantitySpan">{{i.quantity}} x </span><span class="nameSpan">{{i.itemName}}</span></div>
+            <mat-divider></mat-divider>
+            <div class="orderCardFooter"><span class="dateSpan">{{this.formatDate(o.orderDate)}}</span><span class="priceSpan">&#x20B9; {{o.total}}</span></div>
+        </mat-card-content>
+        <mat-card-footer class="orderCardFooterContainer">
+            <button mat-button color="primary" class="deliveryStatusBtn" *ngIf="!this.getDeliveryStatus(o.orderID)" (click)="updateOrder(o.orderID)">Delivered <mat-icon>done</mat-icon></button>
+        </mat-card-footer>
+    </mat-card>
+</div>
+</div>
+<div class="customerContainer">
+    <h4 class="customerNameHeading">{{this.currentCustomer.username}}</h4>
+    <p class="customerNamePara">{{this.currentCustomer.emailId}} . {{this.currentCustomer.contactno}}</p>
+</div>
+<!-- <button type="button" class="btn btn-outline-success viewProfileBtn" (click)="viewProfile()">View Profile</button> -->
+<button type="button" class="btn btn-outline-light viewProfileBtn" (click)="viewProfile()">View Profile</button>
+<app-footer></app-footer>

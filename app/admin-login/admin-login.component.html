@@ -1,0 +1,31 @@
+<div class="bodyContainer">
+<div class="toolbarHead">FoodHut</div>
+<div class="adminLoginContainer">
+    <form [formGroup]="adminLogin" (ngSubmit)="this.loginSubmit()">
+    <mat-form-field appearance="outline" class="adminEmailFormField">
+        <mat-label>Enter Admin Email : </mat-label>
+        <input matInput formControlName="emailId">
+        <mat-error *ngIf="emailId?.errors?.['required']">Email ID is required</mat-error>
+        <mat-error *ngIf="!emailId?.errors?.['required'] && emailId?.errors?.['pattern']">Enter proper Email ID</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="adminEmailFormField">
+        <mat-label>Enter Admin Password : </mat-label>
+        <input matInput formControlName="password" [type]="hide?'password':'text'">
+        <button mat-icon-button (click)="toggleHide($event)" matSuffix>
+            <mat-icon>{{hide?'visibility_off':'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password?.errors?.['required']">
+            Password is required
+        </mat-error>
+    </mat-form-field>
+    <div class="btnContainer">
+        <button mat-flat-button type="submit" color="primary">
+            Continue
+        </button>
+        <button mat-flat-button type="reset" color="warn">
+            Reset
+        </button>
+    </div>
+</form>
+</div>
+</div>

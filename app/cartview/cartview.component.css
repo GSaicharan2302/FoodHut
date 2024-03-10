@@ -1,0 +1,232 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~@angular/material/theming'; */
+.toolbarHead{
+    font-size: 38px;
+    font-family: 'Rowdies', sans-serif;
+}
+.toolbarHead:hover{
+    cursor: pointer;
+}
+.searchBox{
+    margin-left: 16%;
+    width: 37%;
+    margin-top: 7px;
+    background-color: beige;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 13% 87%;
+}
+.searchIcon{
+    margin-top: 7px;
+}
+.searchBoxInput{
+    border: none;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #ed2474;
+    /* background-color: yellow; */
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.profileBtn{
+    margin-left: 65%;
+    font-size: 19px;
+    font-family: 'Kumbh Sans', sans-serif;
+    
+    
+}
+.profileBtnMenu{
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.iconSpan{
+    text-align: center;
+    /* background-color: red; */
+}
+.cartCardContainer{
+    margin-top: 86px;
+    width: 80%;
+    margin-left: 8%;
+    margin-bottom: 278px;
+}
+.iconContainer{
+    background-color: red;
+    width: 20px;
+}
+.homeHeading{
+    display: flex;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+    /* justify-content: space-evenly; */
+}
+.deliveryCard{
+    /* margin: 0 auto;
+    margin-top: 12%; */
+    border: 1px solid yellow;
+}
+.addressCardContainer{
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: red; */
+    margin-top: 38px;
+}
+.addressDeliveryBtn{
+    margin-top: 38px;
+    margin-left: 40.4%;
+}
+.homePara{
+    font-family: 'Geologica',sans-serif;
+    font-weight: 600;
+    margin-left: 18px;
+    line-height: 1.7;
+}
+.homeSpan{
+    margin-left: 12px;
+}
+.listItem{
+    margin-right: 4%;
+}
+.priceContainer{
+    font-family: 'Geologica',sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    color: #6f7173;
+}
+.productNameHeading{
+    font-family: 'Geologica',sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+.quantitySpan{
+    width: 35%;
+    border: 2px solid black;
+    text-align: center;
+}
+.quantityContainer{
+    width: 155px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-evenly;
+}
+.quantityBtn{
+    width: 28px;
+    border-radius: 50%;
+}
+.cartCard{
+    min-width: 380px;
+    max-width: 380px;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #e4f5ec;
+}
+.cartCardHeadingContainer{
+    margin-left: 18px;
+    /* background-color: red; */
+}
+.cartCardImg{
+    width: 40%;
+    height: 100px;
+    border-radius: 8px;
+}
+.descriptionContainer{
+    font-family: 'Geologica',sans-serif;
+    font-size: 15px;
+    color: #6f7173;
+    margin-top: 5px;
+}
+.priceHeading{
+    font-family: 'Geologica',sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+.priceCard{
+    min-width: 300px;
+    max-width: 300px;
+    margin-top: 28px;
+    margin-left: 8%;
+}
+.overallCartContainer{
+    display: grid;
+    grid-template-columns: 50% 30%;
+    /* background-color: red; */
+}
+.placeOrderBtn{
+    margin-top: 54px;
+    margin-left: 40%;
+    background-color: #9a74f2;
+    color: rgb(28, 26, 25) !important;
+    border-radius: 7.7px;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.homeBtn{
+    margin-left: 17px;
+}
+.orderBtn{
+    margin-left: 22px;
+    background-color: red;
+    color: #fff !important;
+    border-radius: 8px;
+    font-size: 13px;
+}
+.cartEmptyContainer{
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Geologica','sans-serif';
+    
+}
+.emptyCartCard{
+    box-shadow: none;
+    min-width: 420px;
+    max-width: 420px;
+    min-height: 400px;
+    max-height: 400px;
+    /* background-color: #9a74f2; */
+    margin-left: 35.5%;
+    margin-top: 10%;
+}
+.emptyCartCardHeader{
+    /* min-height: 200px;
+    max-height: 200px; */
+}
+.emptyCartImg{
+    width: 100%;
+    height: 100%;
+}
+.emptyCartCardContent{
+    margin-top: 17px;
+    text-align: center;
+}
+.cartEmptyParaContainer{
+    font-size: 15px;
+    font-family: 'Geologica','sans-serif';
+    font-weight: 600;
+    margin-top: 13px;
+}
+.restaurantsBtn{
+    font-size: 17px;
+    font-weight: 600;
+    color:black;
+    margin-top: 14px;
+    font-family: 'Geologica','sans-serif';
+}
+.cartCardHeader{
+    min-height: 304px;
+    max-height: 304px;
+}

@@ -1,0 +1,96 @@
+<mat-toolbar class="header">
+    <div class="toolbarHead" (click)="goToHome($event)">FoodHut</div>
+    <!-- <mat-form-field class="searchBox" appearance="fill">
+        <mat-label>Search for restaurant,cuisine or dish </mat-label>
+        <input matInput>
+        <mat-icon matIconPrefix>search</mat-icon>
+    </mat-form-field> -->
+    <div class="form-group has-search searchBoxNew">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control " placeholder="Search for different kinds of dishes" [(ngModel)]="name" (keyup)="getProductByName()" (keydown)="getProductByName()">
+        </div>
+    
+    
+    <button mat-button class="profileBtn" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{this.currentCustomer.username?this.currentCustomer.username:"Guest"}}
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item class="profileBtnMenu" (click)="viewProfile()">Profile<mat-icon>account_circle</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="logout()" *ngIf="!isGuest()">Logout<mat-icon>logout</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="login()"  *ngIf="isGuest()">Login<mat-icon>login</mat-icon></button>
+    </mat-menu>
+    <button mat-icon-button class="cartBtn" (click)="cartClick()"><mat-icon [matBadge]="this.cartService.getCartSize()" [matBadgeHidden]="this.cartService.getCartSize()===0?true:false" *ngIf="!isGuest()">shopping_cart</mat-icon></button>
+</mat-toolbar>
+<div class="chipContainer">
+    <div class="jumbotron jumbotron-fluid ">
+        <div class="container imgContainer">
+         <img src="../../assets/images/restaurant/{{this.restaurant.imageID}}.jpg" class="titleImg">
+        </div>
+      </div>
+    <div class="restaurantContainer">
+        <h4 class="restaurantHeading">{{this.restaurant.restaurantname}}</h4>
+        <div class="ratingDiv">{{this.restaurant.rating}}<mat-icon class="starIcon">star</mat-icon></div>
+    </div>
+    <div class="cuisineContainer">{{this.restaurant.cuisineType}}</div>
+    <div class="addressContainer">{{this.restaurant.location?.area}},{{this.restaurant.location?.city}}</div>
+    <div class="restaurantTab">
+        <!-- <mat-tab-group  color="warn">
+            <mat-tab label="Overview" >
+                <div>
+
+                </div>
+            </mat-tab>
+            <mat-tab label="Order Online" >
+                
+            </mat-tab>
+        </mat-tab-group> -->
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Overview</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Order Online</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="overviewContainer">
+                    <h4 class="overviewCommentsHeading">People say this place is known for : </h4>
+                    <p class="overviewCommentsBody">Seat, Meals, Good Taste, Good Service, Good Food, Ambience</p>
+                    <h4 class="overviewCommentsHeading">Direction</h4>
+                    <p class="overviewCommentsBody">{{this.restaurant.location?.doorNo}},{{this.restaurant.location?.street}},{{this.restaurant.location?.area}},{{this.restaurant.location?.city}}</p>
+                </div>
+            </div>
+            <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="filterContainer">
+                    <button type="button" class="btn btn-success" *ngIf="!sortRating" (click)="sortByRating()">Rating 4.0+</button>
+                    <button type="button" class="btn btn-success" *ngIf="sortRating" (click)="getRestaurantByPathName()">View Menu</button>
+                    <button type="button" class="btn btn-warning" *ngIf="!this.favorites" (click)="getFavourites()">Favourites</button>
+                    <button type="button" class="btn btn-warning" *ngIf="this.favorites" (click)="getRestaurantByPathName()">View Menu</button>
+                </div>
+                <div class="cardContainer">
+                <mat-card class="productCard" *ngFor="let p of products">
+                    <mat-card-header class="productCardHeader">
+                        <img [src]="findImage(p.productId)" mat-card-md-image class="cardImg">
+                        <div class="productDetailsContainer">
+                        <h4 class="productNameHeading">{{p.productname}}</h4>
+                        <div class="productRatingContainer"><mat-icon class="starIcon" *ngFor="let i of getRange(getWholeRating(p.rating))">star</mat-icon><mat-icon class="starIcon" *ngFor="let i of getRange(getSideRating(p.rating))">star_half</mat-icon></div>
+                        <div class="priceContainer">&#x20B9; {{p.price}}</div>
+                        <div class="descriptionContainer">{{p.description}}</div>
+                        </div>
+                        
+                    </mat-card-header>
+                   <mat-card-actions>
+                    <div class="btnContainer" *ngIf="!isGuest()">
+                        <button type="button" class="btn btn-success" (click)="addToCart(p.productId)">Add to Cart</button>
+                        <button mat-icon-button (click)="this.toggleColor(p.productId)" [color]="this.checkFavourites(p.productId)?'warn':''"><mat-icon>favorite</mat-icon></button>
+                    </div>
+                   </mat-card-actions>
+                </mat-card>
+                </div>
+            </div>
+          </div>
+    </div>  
+</div>
+<app-footer></app-footer>

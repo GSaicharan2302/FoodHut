@@ -1,0 +1,179 @@
+<!-- <div class="overallContainer"> -->
+<div class="toolbarHead">FoodHut</div>
+<div class="restaurantRegisterContainer">
+    
+    <form [formGroup]="this.registerForm" >
+    <mat-stepper>
+        <mat-step label="Enter Restaurant Details">
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Email ID : </mat-label>
+        <input matInput formControlName="emailID">
+        <mat-error *ngIf="emailID?.errors?.['required']">
+            Email ID is required
+        </mat-error>
+        <mat-error *ngIf="emailID?.errors?.['pattern']">
+            Email ID must be in proper format
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter name of restaurant : </mat-label>
+        <input matInput formControlName="restaurantName">
+        <mat-error *ngIf="restaurantName?.errors?.['required']">
+                Restaurant Name is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Description : </mat-label>
+        <input matInput formControlName="description">
+        <mat-error *ngIf="description?.errors?.['required']">
+            Description is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Cuisine Type : </mat-label>
+        <input matInput formControlName="cuisineType">
+        <mat-error *ngIf="cuisineType?.errors?.['required']">
+            Cuisine Type is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Password : </mat-label>
+        <input matInput formControlName="password">
+        <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Owner Name : </mat-label>
+        <input matInput formControlName="ownername">
+        <mat-error *ngIf="ownername?.errors?.['required']">
+            Owner Name is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Restaurant ID : </mat-label>
+        <input matInput formControlName="imageID">
+        <mat-error *ngIf="imageID?.errors?.['required']">
+            Restaurant ID is required
+        </mat-error>
+    </mat-form-field>
+    <div class="firstbtnContainer">
+        <!-- <button mat-flat-button color="warn" matStepperPrevious>Back</button> -->
+        <!-- <button mat-flat-button color="primary" matStepperNext >Next</button> -->
+        <button type="button" class="btn btn-outline-primary" matStepperNext>Next</button>
+    </div>
+    </mat-step>
+    <mat-step label="Enter Address Details">
+    <div formGroupName="addressForm">
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Door No : </mat-label>
+        <input matInput type="text" formControlName="doorno">
+        <mat-error *ngIf="doorno?.errors?.['required']">
+            Door No is required
+        </mat-error>
+        <mat-error *ngIf="doorno?.errors?.['pattern'] && !doorno?.errors?.['required']">
+            Door No must be proper
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Street : </mat-label>
+        <input matInput type="text" formControlName="street">
+        <mat-error *ngIf="street?.errors?.['required']">
+            Street is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Area : </mat-label>
+        <input matInput type="text" formControlName="area">
+        <mat-error *ngIf="area?.errors?.['required']">
+            Area is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Select state : </mat-label>
+        <input matInput type="text" [matAutocomplete]="stateAuto" formControlName="state">
+        <mat-autocomplete #stateAuto (optionSelected)="stateChanged($event)">
+            <mat-option *ngFor="let s of states" [value]="s">
+                {{s}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline" >
+        <mat-label>Select City : </mat-label>
+        <input matInput type="text" [matAutocomplete]="auto" formControlName="city" >
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let c of state_active" [value]="c" [disabled]="this.cityBtn">{{c}}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    </div>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter zipcode : </mat-label>
+        <input matInput formControlName="zipcode"  maxlength="6">
+        <mat-error *ngIf="zipcode?.errors?.['required']">
+            Zipcode is required
+        </mat-error>
+        <mat-error *ngIf="zipcode?.errors?.['pattern']">
+            Zipcode must be proper
+        </mat-error>
+    </mat-form-field>
+    <div class="btnContainer">
+        <!-- <button mat-flat-button color="warn" matStepperPrevious>Back</button>
+        <button mat-flat-button color="primary" matStepperNext>Next</button> -->
+        <button type="button" class="btn btn-outline-danger" matStepperPrevious>Back</button>
+        <button type="button" class="btn btn-outline-primary" matStepperNext>Next</button>
+    </div>
+    </mat-step>
+    <mat-step label="Enter Duration and Price Details">
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Duration : </mat-label>
+        <input matInput formControlName="duration">
+        <mat-error *ngIf="duration?.errors?.['required']">
+            Duration is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Price : </mat-label>
+        <input matInput formControlName="price">
+        <mat-error *ngIf="price?.errors?.['required']">
+            Price is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Contact Number : </mat-label>
+        <input matInput formControlName="contactno" maxlength="10">
+        <mat-error *ngIf="contactno?.errors?.['required']">
+            Contact No is required
+        </mat-error>
+        <mat-error *ngIf="contactno?.errors?.['pattern'] && !contactno?.errors?.['required']">
+            Contact No must contain 10 digits
+        </mat-error> 
+      
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Category</mat-label>
+        <input matInput type="text" formControlName="category">
+        <mat-error *ngIf="category?.errors?.['required']">
+            Categories are required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="registerFormField" appearance="outline">
+        <mat-label>Enter Rating : </mat-label>
+        <input matInput formControlName="rating">
+        <mat-error *ngIf="rating?.errors?.['required']">
+                Rating is required
+        </mat-error>
+    </mat-form-field>
+    <div class="finalbtnContainer">
+        <!-- <button mat-flat-button color="warn" matStepperPrevious>Back</button> -->
+        <button type="button" class="btn btn-outline-danger" matStepperPrevious>Back</button>
+        <button mat-flat-button color="accent" (click)="openDialog($event)">Upload Image <mat-icon matIconSuffix>add_a_photo</mat-icon></button>
+        <!-- <button mat-flat-button type="submit" color="primary" [disabled]="this.submitDisabled" (click)="formSubmit()">Submit</button> -->
+        <button type="button" class="btn btn-outline-primary" [disabled]="this.submitDisabled" (click)="formSubmit()">Submit</button>
+        <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" accept=".jpg">
+    </div>
+    
+    </mat-step>
+    </mat-stepper>
+    </form>
+</div>
+<!-- </div> -->

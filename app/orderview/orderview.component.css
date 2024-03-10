@@ -1,0 +1,203 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~@angular/material/theming'; */
+.toolbarHead{
+    font-size: 38px;
+    font-family: 'Rowdies', sans-serif;
+}
+.searchBox{
+    margin-left: 16%;
+    width: 37%;
+    margin-top: 7px;
+    background-color: beige;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 13% 87%;
+}
+.ordersHeader{
+    font-size: 23.5px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 600;
+    margin-left: 95px;
+    color: #15181c;
+}
+.searchIcon{
+    margin-top: 7px;
+}
+.searchBoxInput{
+    border: none;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #ed2474;
+    /* background-color: yellow; */
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.profileBtn{
+    margin-left: 62%;
+    font-size: 18px;
+    font-family: 'Geologica', sans-serif;
+    font-weight: 700;
+}
+.profileBtnMenu{
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.iconSpan{
+    text-align: center;
+    /* background-color: red; */
+}
+.orderPanel{
+    width: 50%;
+    margin-left:24% ;
+    margin-top: 45px;
+}
+.orderPanel:hover{
+    background-color: #8d9196;
+}
+
+.orderCard{
+    min-width: 460px;
+    max-width: 460px;
+    margin: 0 auto;
+    margin-top: 34px;
+    
+}
+.restaurantHeading{
+    font-family: 'Geologica',sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+.restaurantAddress{
+    font-family: 'Geologica',sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #d1d7e0;
+    margin-top: 6px;
+}
+.imgCard{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+.orderCardHeader{
+    height: 120px;
+    background-color: #979ba1;
+}
+.restaurantContainer{
+    margin-left: 27px;
+    margin-bottom: 20px;
+    margin-top: 14px;
+}
+.quantitySpan{
+    font-size: 14.3px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+    color: #6e7073;
+}
+.nameSpan{
+    font-size: 14.3px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+    color: #15181c;
+}
+.dateSpan{
+    font-size: 13px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+    color: #6e7073;
+}
+.priceSpan{
+    font-size: 13px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+    color: #15181c;   
+    margin-left: 58%;
+}
+.orderCardContent{
+    padding: 15px;
+}
+.orderCardQuantityContainer{
+    margin-bottom: 6px;
+}
+.orderCardFooter{
+    margin-top: 5px;
+}
+.orderList{
+   margin-top: 186px;
+   margin-bottom: 168px;
+   /* background-color: #4392f3; */
+   background-color: antiquewhite;
+   padding: 38px;
+   width: 45%;
+   margin-left: 26%;
+}
+.orderContainer{
+    width: 100%;
+    background-color: #37718e;
+    margin-top: 66px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+.customerContainer{
+    position: absolute;
+    top: 18.3%;
+    left: 20.3%;
+    z-index: 2;
+    color: #fff;
+}
+.customerNameHeading{
+    font-family: 'Geologica',sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+.viewProfileBtn{
+ position: absolute;
+ top: 23%;
+ left: 73.3%;
+ 
+ font-size: 15.6px;
+ font-family: 'Geologica',sans-serif;
+ font-weight: 700;
+ z-index: 3;   
+}
+.logoutBtn{
+    margin-left: 12px;
+}
+.customerNamePara{
+    font-family: 'Geologica',sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+.homeBtn{
+    margin-left: 77%;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.orderCardFooterContainer{
+    padding-left: 13px;
+    /* padding-top: -10px; */
+    padding-bottom: 13px;
+}
+.deliveryStatusBtn:hover{
+    background-color: red;
+    color: #fff;
+    border-radius: 7.5px;
+}

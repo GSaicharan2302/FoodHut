@@ -1,0 +1,49 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.footerHead{
+    font-size: 38px;
+    font-family: 'Rowdies', sans-serif;
+}
+.footer{
+    padding: 14px;
+    background-color: gainsboro;
+}
+.firstList{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.f1{
+    margin-top: 10px;
+}
+a:hover{
+    color: red;
+}
+.footerContent{
+    margin-top: 37px;
+    font-size: 19px;
+    font-family: 'Nunito', sans-serif;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.enterpriseClass{
+    margin-top: 8px;
+}
+.firstListItem{
+    margin-bottom: 10px;
+}
+.listItem{
+    margin-bottom: 10px;
+}
+.iconsContainer{
+    width: 43%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+.iconImage{
+    width: 65%;
+}
+.footerEnd{
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+}

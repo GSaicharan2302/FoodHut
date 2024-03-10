@@ -1,0 +1,64 @@
+<mat-toolbar class="header">
+    <div class="toolbarHead">FoodHut</div>
+    <!-- <mat-form-field class="searchBox" appearance="fill">
+        <mat-label>Search for restaurant,cuisine or dish </mat-label>
+        <input matInput>
+        <mat-icon matIconPrefix>search</mat-icon>
+    </mat-form-field> -->
+    
+    <!-- <div class="searchBox form-group">
+        <span class="iconSpan"><mat-icon class="searchIcon">search</mat-icon></span>
+        <input type="text" placeholder="Search for different restaurants" class="searchBoxInput form-control" [(ngModel)]="name" (keyup)="getRestaurantByName()">
+    </div> -->
+    <div class="form-group has-search searchBoxNew">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control " placeholder="Search for different kinds of restaurants" [(ngModel)]="name" (keyup)="getRestaurantByName()" (keydown)="getRestaurantByName()">
+        </div>
+    
+    
+    <button mat-button class="profileBtn" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{this.currentCustomer.username?this.currentCustomer.username:"Guest"}}
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item class="profileBtnMenu" (click)="viewProfile()">Profile <mat-icon>account_circle</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="logout()">Logout<mat-icon>logout</mat-icon></button>
+    </mat-menu>
+    <button mat-icon-button (click)="goToHome()" class="homeBtn"><mat-icon>home</mat-icon></button>
+</mat-toolbar>
+<div class="chipContainer">
+    <button type="button" class="btn btn-outline-primary" (click)="sortByRating()" *ngIf="!this.ratingDisplay">Rating:4.0+</button>
+    <button type="button" class="btn btn-outline-primary" (click)="getRestaurants()" *ngIf="this.ratingDisplay">All Restaurants</button>
+    <button type="button" class="btn btn-outline-warning" (click)="sortByPrice()" *ngIf="!this.priceDisplay">Rs.300-Rs.600</button>
+    <button type="button" class="btn btn-outline-warning" (click)="getRestaurants()" *ngIf="this.priceDisplay">All Restaurants</button>
+
+    <button type="button" class="btn btn-outline-success" (click)="getFavourites()" *ngIf="!this.favDisplay">Favourites </button>
+    <button type="button" class="btn btn-outline-success" (click)="getRestaurants()" *ngIf="this.favDisplay">All Restaurants</button>
+    <button type="button" class="btn btn-outline-success" (click)="getRestaurants()" *ngIf="this.categoryDisplay">All Restaurants</button>
+</div>
+<h1 class="contentHeading">{{this.currentCustomer.username}} what's on your mind : </h1>
+<div class="itemsContainer">
+   <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1675667626/PC_Creative%20refresh/South_Indian_4.png" class="itemImg" (click)="getRestuarantByCategory('southindian')">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1675667625/PC_Creative%20refresh/Biryani_2.png" class="itemImg" (click)="getRestuarantByCategory('biriyani')">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Burger.png" class="itemImg" (click)="getRestuarantByCategory('burger')">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png" class="itemImg" (click)="getRestuarantByCategory('pizza')">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png" class="itemImg" (click)="getRestuarantByCategory('cake')">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029851/PC_Creative%20refresh/3D_bau/banners_new/Ice_Creams.png" class="itemImg" (click)="getRestuarantByCategory('icecream')">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029850/PC_Creative%20refresh/3D_bau/banners_new/Dosa.png" class="itemImg" (click)="getRestuarantByCategory('dosa')">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029846/PC_Creative%20refresh/3D_bau/banners_new/Idli.png" class="itemImg" (click)="getRestuarantByCategory('idli')">
+</div>
+<div class="contentContainer">
+    <h1 class="contentHeading">Delivery Restaurants in {{city}}:</h1>
+    <div class="contentCardContainer">
+        <mat-card class="contentCard" *ngFor="let r of restaurants" >
+            <mat-card-header class="cardHeader">
+            <img [src]="this.getImageUrl(r.imageID)" class="imgCard" (click)="cardClick(r.restaurantname)" ></mat-card-header>
+            <mat-card-content class="cardContent">
+                <p class="overallSpan"><span class="titleSpan">{{r.restaurantname}}</span><span class="ratingSpan"><strong >{{r.rating}}</strong><mat-icon matIconSuffix class="starIcon">star</mat-icon></span></p>
+                <p class="overallSpan"><span class="cuisineSpan">{{r.cuisineType}}</span><span class="priceSpan">&#x20B9; {{r.price}} for one</span></p>
+                <p class="overallDurationSpan"><span><button mat-icon-button (click)="toggleColor(r.emailId)"><mat-icon  [color]="this.checkFavourites(r.emailId)?'warn':''">favorite</mat-icon></button></span><span class="durationSpan">{{r.duration}} mins</span></p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<app-footer></app-footer>

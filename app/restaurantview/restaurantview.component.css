@@ -1,0 +1,216 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.toolbarHead{
+    font-size: 38px;
+    font-family: 'Rowdies', sans-serif;
+}
+.searchBox{
+    margin-left: 16%;
+    width: 37%;
+    margin-top: 7px;
+    background-color: beige;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 13% 87%;
+}
+.searchBoxInput{
+    border: none;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #ed2474;
+    /* background-color: yellow; */
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.searchBoxNew{
+    width: 31%;
+    margin-left: 25%;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.itemCardContent{
+    font-size: 28px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+}
+.itemCard{
+    min-width: 180px;
+    max-width: 180px;
+}
+.itemImg{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.itemImg:hover{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+.itemsContainer{
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 8.5%;
+    width: 85%;
+}
+.profileBtn{
+    margin-left: 12%;
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.profileBtnMenu{
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.chipContainer{
+    width: 38%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 85px;
+    margin-left: 6.5%;
+    margin-bottom: 17px;
+}
+.contentHeading{
+    font-size: 30px;
+    font-family: 'Lobster', sans-serif;
+    margin-left: 8.5%;
+}
+.contentCard{
+    width: 25%;
+    margin-left: 25px;
+    margin-top: 25px;
+    box-shadow: none;
+}
+.contentCard:hover{
+    box-shadow: 2px 2px 2px 2px gray;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #595454;
+    transform: scale(0.9);
+}
+.imgCard{
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+.homeBtn{
+    margin-left: 13px;
+}
+.contentCard{
+    padding: 5px;
+    /* background-color: #d4e0b6; */
+}
+.cardContent{
+    margin-top: 12px;
+}
+.titleSpan{
+    font-size: 16px;
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 800px;
+    /* font-family: Okra, Helvetica, sans-serif; */
+
+    text-overflow: ellipsis;
+    font-weight: 600;
+    /* background-color: yellow; */
+}
+.ratingSpan{
+    width: 14%;
+    margin-top: 0.5px;
+    margin-left: 75px;
+    max-height: 17px;
+    background-color: brown;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 7px;
+    padding-right: 5px;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 12.4px;
+}
+.starIcon{
+    font-size: 10px;
+    margin-top: 15px;
+    margin-left: 2px;
+}
+.overallSpan{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+.priceSpan{
+        margin-left: 85px;
+        color: #929693;
+        font-size: 14px;
+        white-space: nowrap;
+}
+.cuisineSpan{
+    color: #b5908d;
+    font-size: 14px;
+    /* background-color: blueviolet; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 190px;
+}
+.durationSpan{
+    margin-left: 240px;
+    margin-top: 17.8px;
+    font-size: 11.2px;
+    color: #ed2474;
+    /* background-color: blue; */
+}
+.contentCardContainer{
+    /* padding: 25px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%; */
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-evenly; 
+    flex-wrap: wrap;
+    /* background-color: yellow; */
+}
+.header{
+    /* box-shadow: 0.8px 0.8px 0.8px 0.8px gray; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.cardHeader{
+    min-height: 200px;
+    max-height: 200px;
+}
+.contentContainer{
+    margin-top: 45px;
+    margin-bottom: 60px;
+}
+.iconSpan{
+    text-align: center;
+    /* background-color: red; */
+}
+.searchIcon{
+    margin-top: 7px;
+}
+.overallDurationSpan{
+ display: flex;
+ flex-wrap: nowrap;
+ /* background-color: yellow;    */
+}
+
+
+

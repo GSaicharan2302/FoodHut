@@ -1,0 +1,74 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.login{
+    padding: 2em ;
+    display: flex;
+    justify-content: center;
+
+    background-color: red;
+    background-image: url('src\assets\Chocolate Bonbons.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+
+    height: 85vh;
+
+    padding-top: 8em;
+    overflow: hidden;
+}
+
+mat-card{
+    /* width: 100%; */
+    /* background-color: antiquewhite; */
+    padding: 1em;
+    box-shadow: 1px 1px  1px 1px black;
+    background: rgba(255, 255, 255, .01);
+
+    transition: backdrop-filter 0.3s ease-in, transform 0.3s ease-out;
+
+    background-attachment: fixed;
+
+    backdrop-filter: blur(0);
+    height: 25em;
+
+    
+}
+mat-card:hover{
+    backdrop-filter: blur(25px);
+}
+
+mat-card-title h2{
+    text-align: center;
+}
+mat-form-field{
+    /* color: white;     */
+    width: 100%;
+}
+mat-card-actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+button{
+    width: 80%;
+}
+a{
+    color: orange;
+    text-decoration: none;
+    /* font-weight: bold; */
+}
+a:hover{
+    /* opacity: 0.2; */
+    color: black;
+}
+mat-card-content{
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.8em;
+    border-radius: 0.5em;
+
+}
+mat-label{
+    color: white;
+}

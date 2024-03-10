@@ -1,0 +1,130 @@
+<div class="signup">
+    <mat-card>
+        <mat-card-title>
+            <h2>
+                Sign-up 
+            </h2>
+        </mat-card-title>
+        <mat-card-content>
+
+            <mat-stepper [linear]="true" orientation="horizontal" #stepper>
+
+                <mat-step [stepControl]="registerForm">
+                    <form [formGroup]="registerForm" >
+                        <ng-template matStepLabel>Fill out your details</ng-template>
+                    
+                        <div class="form-content">
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    Username
+                                </mat-label>
+                                <input type="text" matInput formControlName="username">
+                            </mat-form-field>
+            
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    Contact No
+                                </mat-label>
+                                <input type="text" matInput formControlName="contactno">
+                            </mat-form-field>
+            
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    Email
+                                </mat-label>
+                                <input type="email" matInput formControlName="email">
+                            </mat-form-field>
+                            <div class="field-container">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>
+                                        Password
+                                    </mat-label>
+                                    <input [type]="showPassword ? 'text' : 'password'" matInput formControlName="password">
+                                    <mat-icon matSuffix (click)="showPassword = !showPassword" class="eye-icon">
+                                        {{showPassword ? 'visibility_off' : 'visibility'}}
+                                    </mat-icon>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>
+                                        Confirm Password
+                                    </mat-label>
+                                    <input type="password" matInput formControlName="confirmPassword">
+                                </mat-form-field>
+
+                            </div>
+                        </div>
+
+        
+                    </form>
+        
+                </mat-step>
+                <mat-step [stepControl]="addressForm" [optional]="true" >
+                    <form [formGroup]="addressForm">
+                        <ng-template matStepLabel>Fill out your address</ng-template>
+                      
+                        <div class="form-content">
+
+                            <div class="field-container">
+                              <mat-form-field appearance="outline">
+                                <mat-label>State</mat-label>
+                                <mat-select matInput formControlName="state" (selectionChange)="stateChange($event)">
+                                  <mat-option disabled>Select a state</mat-option>                            
+                                  <mat-option *ngFor="let state of _states" [value]="state">{{ state }}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          
+                              <mat-form-field appearance="outline">
+                                <mat-label>City</mat-label>
+                                <mat-select matInput formControlName="city">
+                                  <mat-option disabled>Select a city</mat-option>
+                                  <mat-option *ngFor="let city of _cities" [value]="city">{{ city }}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          
+                            <mat-form-field appearance="outline">
+                              <mat-label>Area</mat-label>
+                              <input type="text" matInput formControlName="area">
+                            </mat-form-field>
+                          
+                            <mat-form-field appearance="outline">
+                              <mat-label>Street</mat-label>
+                              <input type="text" matInput formControlName="street">
+                            </mat-form-field>
+                          
+                            <div class="field-container">
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Door No</mat-label>
+                                  <input type="text" matInput formControlName="doorNo">
+                                </mat-form-field>
+                              
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Zip Code</mat-label>
+                                  <input type="text" matInput formControlName="zipcode">
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                      </form>
+                </mat-step>
+                
+            </mat-stepper>
+            
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-fab extended color="primary" (click)="signup()">
+                signup
+            </button>
+            <!-- <button mat-flat-button color="warn" (click)="cancel()">
+                cancel
+            </button> -->
+            <p>
+                Already have an  account? <a [routerLink]="['/login']" routerLinkActive="router-link-active" >login</a>
+            </p>
+      
+        </mat-card-actions>
+    </mat-card>
+
+</div>

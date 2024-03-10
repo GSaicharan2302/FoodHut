@@ -1,0 +1,9 @@
+.restaurant-panel{
+    padding: 1em;
+    padding-top: 5em;
+}
+.main-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}

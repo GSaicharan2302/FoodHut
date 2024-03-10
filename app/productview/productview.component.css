@@ -1,0 +1,239 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~@angular/material/theming'; */
+.toolbarHead{
+    font-size: 38px;
+    font-family: 'Rowdies', sans-serif;
+}
+.toolbarHead:hover{
+    cursor: pointer;
+}
+.searchBox{
+    margin-left: 16%;
+    width: 37%;
+    margin-top: 7px;
+    background-color: beige;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 13% 87%;
+}
+.searchIcon{
+    margin-top: 7px;
+}
+.searchBoxInput{
+    border: none;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #ed2474;
+    /* background-color: yellow; */
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.profileBtn{
+    margin-left: 12%;
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.profileBtnMenu{
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.iconSpan{
+    text-align: center;
+    /* background-color: red; */
+}
+.titleImg{
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+}
+.imgContainer{
+    width: 76%;
+    margin-left: 174px;
+    height: 400px;
+    /* background-color: red; */
+    /* border: 1px solid black; */
+    /* background-image: url("../../assets/images/restaurant/P004.jpg"); */
+   
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.searchBoxNew{
+    width: 31%;
+    margin-left: 25%;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.chipContainer{
+    margin-top: 85px;
+    margin-bottom: 35px;
+    /* padding-top: 105px; */
+    /* background-color: #e6e9ed; */
+}
+
+
+
+.restaurantHeading{
+    font-family: Geologica;
+    font-weight: 700;
+    /* background-color: red; */
+    font-size: 32px;
+    margin-left: 18.5%;
+}
+.restaurantContainer{
+    margin-left: -17px;
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: 82% 18%;
+    /* background-color: yellow; */
+}
+.ratingDiv{
+    margin-top: 10px;
+    background-color: brown;
+    display: flex;
+    justify-content: space-evenly;
+    width: 48px;
+    height: 20px;
+    padding-left: 4px;
+    color: whitesmoke;
+    font-family: 'Geologica', sans-serif;
+    font-weight: 600;
+    border-radius: 6px;
+}
+.starIcon{
+    font-size: 14px;
+    margin-top: 3px;
+}
+.tab1{
+    font-family: 'lobster', sans-serif;   
+    font-weight: 600;
+}
+.restaurantTab{
+    width: 74%;
+    /* background-color: yellow; */
+    margin-left: 13.2%;
+    margin-top: 22px;
+}
+.cuisineContainer{
+    font-family: 'Geologica',sans-serif;
+    font-size: 15px;
+    color: #ed2863;
+    margin-left: 14.4%;
+}
+.addressContainer{
+    font-family: 'Geologica',sans-serif;
+    font-size: 15px;
+    color: #ed2863;
+    margin-left: 14.3%;
+    margin-top: 10px;
+}
+.mat-tab-group{
+    font-family: 'lobster',sans-serif;
+}
+.cardImg{
+    border-radius: 10px;
+}
+.productNameHeading{
+    font-family: 'Geologica',sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+.productDetailsContainer{
+    margin-left: 18px;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.productRatingContainer{
+    width: 85px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.starIcon{
+    font-size: 15px;
+    color: goldenrod;
+}
+.priceContainer{
+    font-family: 'Geologica',sans-serif;
+    font-size: 15px;
+    color: #6f7173;
+}
+.descriptionContainer{
+    font-family: 'Geologica',sans-serif;
+    font-size: 15px;
+    color: #6f7173;
+    margin-top: 5px;
+}
+.productCard{
+    min-width: 440px;
+    max-width: 440px;
+    box-shadow: none;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+.productCard:hover{
+    box-shadow: 2px 2px 2px 2px gray;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #595454;
+    transform: scale(0.9);
+}
+.btnContainer{
+    width: 200px;
+    /* background-color: yellow; */
+    margin-left: 115px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.productCardHeader{
+    margin-bottom: 25px;
+}
+.cardContainer{
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.overviewCommentsHeading{
+    font-family: 'Geologica',sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+}
+.overviewCommentsBody{
+    font-family: 'Geologica',sans-serif;
+    font-size: 16.8px;
+    color: #4f4f4f;
+}
+.cartBtn{
+    margin-left: 15px;
+}
+.filterContainer{
+    width: 38%;
+    display: flex;
+    justify-content: space-evenly;
+}

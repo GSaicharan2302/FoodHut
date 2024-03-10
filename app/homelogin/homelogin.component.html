@@ -1,0 +1,71 @@
+<div class="overallContainer">
+<div class="firstContainer">
+    <div class="toolbarHead" (click)="goToHome()">FoodHut</div>
+    <button type="button" class="btn btn-dark signupBtn" (click)="signUp($event)">Sign Up</button>
+    <h3 class="loginContentHead">Unexpected Guests?</h3>
+    <h4 class="loginContentPara">Order food from favourite restaurants near you</h4>
+    <form [formGroup]="loginForm" *ngIf="!this.otpSection">
+    <div class="input-group mb-3 loginSpan">
+        
+        <input type="text" class="form-control emailSpan" placeholder="Enter your email ID" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="emailId" >
+        <span class="input-group-text otpSpan" id="basic-addon2" (click)="getOTP()" >Get OTP</span>
+        
+        
+      </div>
+      </form>
+      <div class="input-group mb-3 loginSpan" *ngIf="this.otpSection">
+        
+        <input type="text" class="form-control emailSpan" placeholder="Enter One Time Password" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="otp" >
+        <span class="input-group-text otpSpan" id="basic-addon2" (click)="checkOTP()" >Login</span>
+        
+        
+      </div>
+      
+      <!-- <mat-error class="errorField" *ngIf="emailId?.errors?.['required']">Email must be entered</mat-error> -->
+      <mat-error class="errorField" *ngIf="emailId?.errors?.['pattern']">Please enter valid email ID</mat-error>
+      <mat-error class="errorField" *ngIf="emailId?.errors?.['invalidEmail'] && !emailId?.errors?.['pattern']">Email ID must not start with digit</mat-error>
+      <a href="#" class="link-warning resendOTP" *ngIf="this.resendOTP===true">Resend OTP?</a>
+</div>
+<div class="jumbotron secondContainer">
+   
+  </div>
+</div>
+<div class="swiggyCardContainer">
+    
+    <mat-card class="swiggyCard">
+      <mat-card-header>
+        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_210,h_398/4x_-_No_min_order_x0bxuf" mat-card-lg-image>
+      </mat-card-header>
+      <mat-card-content>
+          <h4 class="swiggyHeading">No Minimum Order</h4>
+          <p class="swiggyPara">Order in for yourself or for the group, with no restrictions on order value</p>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="swiggyCard">
+      <mat-card-header>
+        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_224,h_412/4x_Live_order_zzotwy" mat-card-lg-image>
+      </mat-card-header>
+      <mat-card-content>
+          <h4 class="swiggyHeading">Live Order Tracking</h4>
+          <p class="swiggyPara">Know where your order is at all times, from the restaurant to your doorstep</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="swiggyCard">
+      <mat-card-header>
+        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_248,h_376/4x_-_Super_fast_delivery_awv7sn" mat-card-lg-image>
+      </mat-card-header>
+      <mat-card-content>
+          <h4 class="swiggyHeading">Lightning-Fast Delivery</h4>
+          <p class="swiggyPara">Experience Swiggy's superfast delivery for food delivered fresh & on time</p>
+      </mat-card-content>
+    </mat-card>
+    
+</div>
+<div class="swiggyPlayStoreContent">
+  <h3 class="loginContentHead">Restaurants in your pocket</h3>
+    <h4 class="loginContentPara">Order from your favorite restaurants & track on the go, with the all-new Swiggy app.</h4>
+    <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_108/play_ip0jfp" class="playStoreImg">
+</div>
+<app-footer></app-footer>

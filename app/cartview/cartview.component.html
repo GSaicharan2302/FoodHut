@@ -1,0 +1,112 @@
+<mat-toolbar class="header">
+    <div class="toolbarHead" (click)="goToHome($event)">FoodHut</div>
+   
+    
+    <!-- <div class="searchBox form-group">
+        <span class="iconSpan"><mat-icon class="searchIcon">search</mat-icon></span>
+        <input type="text" placeholder="Search for different delicious dishes" class="searchBoxInput form-control" [(ngModel)]="name" >
+    </div> -->
+    
+    
+    <button mat-button class="profileBtn" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{this.currentCustomer.username?this.currentCustomer.username:"Guest"}}
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item class="profileBtnMenu" (click)="viewProfile()">Profile<mat-icon>account_circle</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="logout()" *ngIf="!isGuest()">Logout<mat-icon>logout</mat-icon></button>
+        <button mat-menu-item class="profileBtnMenu" (click)="login()"  *ngIf="isGuest()">Login<mat-icon>login</mat-icon></button>
+    </mat-menu>
+    <button mat-icon-button (click)="goToHome($event)" class="homeBtn"><mat-icon>home</mat-icon></button>
+    <button mat-button class="orderBtn" (click)="goToOrders()">My Orders</button>
+</mat-toolbar>
+<div class="cartCardContainer">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item listItem" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Cart Items</button>
+        </li>
+        <li class="nav-item listItem" role="presentation">
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Price Details</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-delivery-tab" data-bs-toggle="pill" data-bs-target="#pills-delivery" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Delivery Address</button>
+          </li>
+        
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="overallCartContainer" *ngIf="this.cartService.getCartItems() && this.cartService.getCartItems()?.length!==0">
+            <mat-card *ngFor="let i of this.cartService.getCartItems()" class="cartCard">
+                <mat-card-header class="cartCardHeader">
+                    <img [src]="this.getImageURL(i.itemID)" mat-card-lg-image class="cartCardImg">
+                    <div class="cartCardHeadingContainer">
+                    <h4 class="productNameHeading">{{i.itemName}}</h4>
+                    <p class="priceContainer">&#x20B9; {{i.price}}</p>
+                    <div class="descriptionContainer">{{i.itemDescription}}</div>
+                    </div>
+                </mat-card-header>
+                <mat-card-actions class="cartCardActions">
+                    <div class="quantityContainer"><button class="quantityBtn" (click)="decreaseQuantity(i)" [disabled]="i.quantity &&i.quantity===1?true:false">-</button><span class="quantitySpan">{{i.quantity}}</span><button class="quantityBtn" (click)="increaseQuantity(i)">+</button></div>
+                    <button mat-flat-button color="warn" (click)="this.cartService.removeFromCart(i.itemID)"> Remove</button>
+                </mat-card-actions>
+            </mat-card>
+            </div>
+            <button mat-button color="primary" class="placeOrderBtn" *ngIf="this.cartService.getCartSize()>0?true:false" (click)="placeOrder()" [disabled]="this.checkCity()">Place Order</button>
+            <mat-card class="emptyCartCard" *ngIf="this.cartService.getCartItems() && this.cartService.getCartItems()?.length===0">
+                <mat-card-header class="emptyCartCardHeader">
+                  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" class="emptyCartImg">
+                </mat-card-header>
+                <mat-card-content class="emptyCartCardContent">
+                      <div class="cartEmptyContainer">Your cart is empty</div>
+                      <div class="cartEmptyParaContainer">You can go to home page to view more restaurants</div>
+                      <button type="button" class="btn btn-warning restaurantsBtn" (click)="restaurantNavigate()">See restaurants near you</button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="priceDeliveryContainer">
+            <mat-card class="priceCard">
+                <mat-card-content>
+                    <h4 class="priceHeading">Price : &#x20B9; {{this.cartService.getCartTotal()}}</h4>
+                    <h4 class="priceHeading">Delivery Charges : &#x20B9; 0</h4>
+                    <h4 class="priceHeading">Service Charges : &#x20B9; 0</h4>
+                    <mat-divider></mat-divider>
+                    <h4 class="priceHeading">Total Amount : &#x20B9; {{this.cartService.getCartTotal()}}</h4>
+                </mat-card-content>
+            </mat-card>
+            
+            </div>
+        </div>
+        <div class="tab-pane fade " id="pills-delivery" role="tabpanel" aria-labelledby="pills-delivery-tab">
+            <div class="addressCardContainer">
+            <div class="card deliveryCard text-bg-danger mb-3" style="width: 18rem;" *ngIf="!this.isAddressChanged">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" >
+                    <mat-icon>checked_circle</mat-icon>
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                <div class="card-body ">
+                  <h5 class="card-title homeHeading"><mat-icon>home</mat-icon><span class="homeSpan">Home</span></h5>
+                  
+                  <p class="card-text homePara">{{this.currentCustomer.address?.doorNo}},{{this.currentCustomer.address?.street}},{{this.currentCustomer.address?.area}},{{this.currentCustomer.address?.city}}-{{this.currentCustomer.address?.zipcode}}</p>
+                  <!-- <button type="button" class="btn btn-outline-warning card-link">Deliver Here</button> -->
+                </div>
+              </div>
+              <div class="card deliveryCard text-bg-danger mb-3" style="width: 18rem;" *ngIf="this.isAddressChanged">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                    <mat-icon>checked_circle</mat-icon>
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                <div class="card-body ">
+                  <h5 class="card-title homeHeading"><mat-icon>location_on</mat-icon><span class="homeSpan">Others</span></h5>
+                 
+                  <p class="card-text homePara">{{this.deliveryAddress.doorNo}},{{this.deliveryAddress.street}},{{this.deliveryAddress.area}},{{this.deliveryAddress.city}}-{{this.deliveryAddress.zipcode}}</p>
+                  
+                </div>
+              </div>
+              
+        </div>
+        <button type="button" class="btn btn-outline-success addressDeliveryBtn" (click)="openDialog()">Choose new Delivery Address</button>
+      </div>
+      </div>
+</div>
+<app-footer></app-footer>

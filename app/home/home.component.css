@@ -1,0 +1,232 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.jumboHeader{
+    background-image: url("https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?cs=srgb&dl=pexels-chan-walrus-941861.jpg&fm=jpg");
+    width: 100%;
+    height: 420px;
+    /* margin-top: 45px; */
+    background-size: 100% 100%;
+    color: whitesmoke;
+    padding:10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    /* z-index: 1; */
+}
+.jumboHeader2{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLGVCw0BJi35x4zAFxuqTqXgyDAHuEysZPDw&usqp=CAU");
+    width: 100%;
+    height: 420px;
+    /* margin-top: 45px; */
+    background-size: 100% 100%;
+    color: whitesmoke;
+    padding:10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    /* z-index: 1; */
+}
+.jumboHeader1{
+    background-image: url("data:image/jpeg;base64,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");
+    width: 100%;
+    height: 420px;
+    /* margin-top: 45px; */
+    background-size: 100% 100%;
+    color: whitesmoke;
+    padding:10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    /* z-index: 1; */
+}
+.headerSection{
+    /* margin-top: 5px; */
+    font-size: 38px;
+    position: absolute;
+    left: 44.9%;
+    top: 26.2%;
+    z-index: 2;
+font-family: 'Rowdies', sans-serif;
+color: aquamarine;
+}
+.paraSection{
+    font-size: 28px;
+    position: absolute;
+    left: 35%;
+    top: 33.2%;
+    z-index: 2;
+    font-family: 'Rajdhani', sans-serif;
+    color: aquamarine;
+}
+.topNavSection{
+    width: 38.3%;
+    position: absolute;
+    top: 2.5%;
+    left: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+.describeHeaderSection{
+    font-size: 31px;
+    padding: 15px;
+    font-family: 'Varela Round', sans-serif;
+    /* position: absolute;
+    top: 76%;
+    left: 33%; */
+}
+.describeParaSection{
+    width: 57%;
+    margin-top: 9.3px;
+    padding: 15px;
+    margin-left: -63.1px;
+    /* position: absolute;
+    top: 86%;
+    left: 28%; */
+    /* margin-bottom: 17px; */
+    font-family: 'Varela Round', sans-serif;
+    font-size: 17px;
+    background-color: gainsboro;
+    border-radius: 11px;
+}
+.locationDescriptionContainer{
+    margin-top: 12px;
+    margin-left: 36%;
+    /* background-color: red; */
+}
+.restaurantBtn{
+    background-color: gainsboro;
+    border-radius: 11px;
+}
+.restaurantsFinder{
+    width: 67%;
+
+    /* background-color: blueviolet; */
+    position: absolute;
+    top: 87%;
+    left: 20%;
+    /* margin-bottom: 22px; */
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+.restaurantBtn{
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.restaurantBtn:hover{
+    background-color: blueviolet;
+    color: aquamarine;
+}
+.profileBtnHome{
+    margin-left: 12%;
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: rgb(228, 209, 209) !important;
+    max-width: 222px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.profileBtnMenu{
+    font-size: 18px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.btnIconContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer{
+    position: absolute;
+    top: 136%;
+    left: 0;
+}
+.cartBtn{
+    margin-top: -5px;
+    color: aquamarine !important;
+}
+.addRestaurantBtn:hover{
+    background-color: red;
+    color: #fff !important;
+    border-radius: 8px;
+}
+.viewOrdersBtn{
+    border-radius: 8.6px;
+    font-family: 'Geologica',sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+}
+.viewOrdersBtn:hover{
+    background-color: red;
+    color: #fff;
+}
+.infoImg{
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-left: 98px;
+    /* background-color: blueviolet; */
+}
+.infoCard{
+    min-width: 330px;
+    max-width: 330px;
+    border-radius: 12px;
+    box-shadow: none;
+}
+.infoCard:hover{
+    transform: scale(1.1);
+    box-shadow: 1.3px 1.3px 1.3px 1.3px gray;
+}
+.infoContentStep{
+    font-size: 17px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 600;
+}
+.infoContentHead{
+    font-size: 15px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+}
+.infoContentPara{
+    font-size: 15px;
+    font-family: 'Geologica',sans-serif;
+    font-weight: 700;
+    color: #686968;
+    line-height: 1.5;
+}
+.infoContent{
+    margin-top: 6px;
+    text-align: center;
+}
+.infoContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 45px;
+    /* margin-bottom: 35px; */
+}
+.infoHeading{
+    text-align: center;
+    font-size: 31px;
+    margin-top: 17px;
+    font-family: 'Varela Round', sans-serif;
+
+}
+.loginBtn{
+    padding: 6.5px;
+    padding-left: 12.5px;
+    padding-right: 12.5px;
+    background-color: rgb(137, 137, 248);
+    border-radius: 7.7px;
+}
+.signupBtn{
+    padding: 6.5px;
+    padding-left: 12.5px;
+    padding-right: 12.5px;
+    background-color: rgb(188, 240, 43);
+    border-radius: 7.7px;
+}
+.addRestaurantBtn{
+    padding: 6.5px;
+    padding-left: 12.5px;
+    padding-right: 12.5px;
+    background-color: rgb(245, 68, 68);
+    border-radius: 7.7px;
+}
